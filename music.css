@@ -1,0 +1,82 @@
+.notation {
+	font-size: 3rem;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+
+.notation bar {
+	flex-grow: 0;
+	flex-shrink: 1;
+	margin: 0.75em 0 0.75em 0;
+	padding: 0 0.15em 0 0.15em;
+	display: inline-block;
+	height: 1em;
+	
+	display: flex;
+	flex-direction: row;
+	flex-wrap: no-wrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	
+	border-right: solid black 1px;
+	min-width: 4em;
+	max-width: 8em;
+	background-color: #ccc;
+}
+
+.notation bar:first-of-type {
+	border-left: solid black 1px;
+}
+
+.notation bar:last-of-type {
+	border-right-width: 0.15em;
+	border-right-style: double;
+}
+
+.notation note {
+	display: inline-block;
+	width: 0.4em;
+	height: 1em;
+	background-color: #fcc;
+}
+
+.notation note::before {
+	position: relative;
+	display: block;
+	content: '';
+	background-color: #cfc;
+}
+
+.notation note[duration="1"] {
+	margin-right: 0.35em;
+}
+
+.notation note[duration="1"]::before {
+	height: 0.4em;
+	/* draw note */
+}
+
+.notation note[duration="2"] {
+	margin-right: 0.9em;
+}
+
+.notation note[duration="2"]::before {
+	height: 0.4em;
+	/* draw note */
+}
+
+.notation note[pitch="e4"]::before {
+	top: 0.8em;
+}
+
+.notation note[pitch="f4"]::before {
+	top: 0.65em;
+}
+
+.notation note[pitch="g4"]::before {
+	top: 0.5em;
+}

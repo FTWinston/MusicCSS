@@ -22,14 +22,22 @@
 	justify-content: flex-start;
 	align-items: stretch;
 	
-	border-right: solid black 1px;
+	border-top: solid black 0.02em;
+	border-right: solid black 0.02em;
 	min-width: 4em;
 	max-width: 8em;
-	background-color: #ccc;
+	
+	background: repeating-linear-gradient(
+		0deg,
+		#000,
+		#000 0.02em,
+		#fff 0.02em,
+		#fff 0.25em
+	);
 }
 
 .notation bar:first-of-type {
-	border-left: solid black 1px;
+	border-left: solid black 0.02em;
 }
 
 .notation bar:last-of-type {
@@ -41,14 +49,25 @@
 	display: inline-block;
 	width: 0.4em;
 	height: 1em;
-	background-color: #fcc;
 }
 
 .notation note::before {
 	position: relative;
 	display: block;
 	content: '';
-	background-color: #cfc;
+	border-radius: 0.2em;
+	box-sizing: border-box;
+}
+
+.notation note::after {
+	position: relative;
+	display: block;
+	background-color: #000;
+	width: 0.1em;
+	height: 0.1em;
+	left: 0.5em;
+	border-radius: 0.1em;
+	box-sizing: border-box;
 }
 
 .notation note[duration="1"] {
@@ -56,27 +75,41 @@
 }
 
 .notation note[duration="1"]::before {
-	height: 0.4em;
-	/* draw note */
+	height: 0.38em;
+	background-color: #000;
+	/* TODO: draw stem */
 }
 
 .notation note[duration="2"] {
 	margin-right: 0.9em;
 }
 
-.notation note[duration="2"]::before {
-	height: 0.4em;
-	/* draw note */
+.notation note[duration="3"] {
+	margin-right: 1.5em;
 }
 
-.notation note[pitch="e4"]::before {
+.notation note[duration="4"] {
+	margin-right: 3em;
+}
+
+.notation note[duration="2"]::before, .notation note[duration="3"]::before, .notation note[duration="4"]::before {
+	height: 0.38em;
+	border: solid black 0.1em;
+	/* TODO: draw stem ... for 2 and 3 only */
+}
+
+.notation note[duration="3"]::after {
+	content: '';
+}
+
+.notation note[pitch="e4"]::before, .notation note[pitch="e4"]::after {
 	top: 0.8em;
 }
 
-.notation note[pitch="f4"]::before {
+.notation note[pitch="f4"]::before, .notation note[pitch="f4"]::after {
 	top: 0.65em;
 }
 
-.notation note[pitch="g4"]::before {
+.notation note[pitch="g4"]::before, .notation note[pitch="g4"]::after {
 	top: 0.5em;
 }
